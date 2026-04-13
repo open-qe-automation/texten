@@ -20,10 +20,10 @@
     "urls": "\\bhttps?://[^\\s]+\\b"
   },
   "input_directories": [
-    "~/development/open-qe-automation/share/input"
+    "../share/input"
   ],
-  "text_output_directory": "~/development/open-qe-automation/share/text_output",
-  "pii_output_directory": "~/development/open-qe-automation/share/pii_output",
+  "text_output_directory": "../share/text_output",
+  "pii_output_directory": "../share/pii_output",
   "hash_file_path": "file_hashes.json",
   "scheduler_interval": 60
 }
