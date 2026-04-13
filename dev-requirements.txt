@@ -1,0 +1,19 @@
+# Local development requirements
+# Install dependencies from local packages instead of remote git repos
+
+# Local packages (development only)
+-e /home/gandalf/development/open-qe-automation/package.utils
+
+# Third-party dependencies
+python-docx
+PyPDF2
+openpyxl
+python-pptx
+xlrd
+pandas
+PyMuPDF
+nltk
+numpy
+requests
+beautifulsoup4
+pytest
