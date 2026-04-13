@@ -6,8 +6,8 @@ import re
 import fnmatch
 import logging
 from config_manager import ConfigManager
-from data_loaders.data_loader_manager import DataLoaderManager
-from msuliot.base_64 import Base64 # https://github.com/msuliot/package.utils.git
+from msuliot.data_loader_manager import DataLoaderManager
+from msuliot.base_64 import Base64
 
 log_filename = 'texten.log' 
 logging.basicConfig(filename=log_filename,

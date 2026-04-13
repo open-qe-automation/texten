@@ -3,6 +3,7 @@
 
 # Local packages (development only)
 -e /home/gandalf/development/open-qe-automation/package.utils
+-e /home/gandalf/development/open-qe-automation/package.data.loaders
 
 # Third-party dependencies
 python-docx

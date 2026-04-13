@@ -4,13 +4,13 @@ import pytest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from data_loaders.docx_loader import DocxLoader
-from data_loaders.pdf_loader import PdfLoader
-from data_loaders.xlsx_loader import XlsxLoader
-from data_loaders.csv_loader import CsvLoader
-from data_loaders.pptx_loader import PptxLoader
-from data_loaders.html_loader import HtmlLoader
-from data_loaders.data_loader_manager import DataLoaderManager
+from msuliot.docx_loader import DocxLoader
+from msuliot.pdf_loader import PdfLoader
+from msuliot.xlsx_loader import XlsxLoader
+from msuliot.csv_loader import CsvLoader
+from msuliot.pptx_loader import PptxLoader
+from msuliot.html_loader import HtmlLoader
+from msuliot.data_loader_manager import DataLoaderManager
 
 
 FIXTURES_DIR = os.path.join(os.path.dirname(__file__), 'fixtures')
