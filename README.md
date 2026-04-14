@@ -1,10 +1,9 @@
-
 # TEXTEN - TEXT Extraction Node
 
 TEXTEN is a robust and efficient application designed to automate the process of extracting text from various file formats, detecting Personally Identifiable Information (PII), and managing the results effectively. This tool is particularly useful for organizations that handle large volumes of documents and need to ensure compliance with data privacy regulations.
 
 Key Features
-- Text Extraction: Supports multiple file formats including DOCX, PDF, XLSX, PPTX, and others.
+- Text Extraction: Supports multiple file formats including DOCX, PDF, XLSX, CSV, PPTX, HTML, RTF.
 - PII Detection: Uses configurable regex patterns to identify and flag sensitive information such as SSNs and credit card numbers.
 - File Hashing: Implements file hashing to detect changes and avoid reprocessing files unnecessarily.
 - Exclusion Patterns: Allows configuration of file and directory exclusion patterns.
@@ -12,10 +11,15 @@ Key Features
 - Configurable Output: Saves processed text and PII-flagged content to designated output directories.
 
 ## Git Repositories
-- https://github.com/msuliot/texten.git
-- https://github.com/msuliot/webtexten.git
-- https://github.com/msuliot/chunken.git
-- https://github.com/msuliot/datamyn.git
+- https://github.com/open-qe-automation/texten.git
+- https://github.com/open-qe-automation/webtexten.git
+- https://github.com/open-qe-automation/chunken.git
+- https://github.com/open-qe-automation/datamyn.git
+
+## Related Packages
+- https://github.com/open-qe-automation/package.utils.git
+- https://github.com/open-qe-automation/package.data.loaders.git
+- https://github.com/open-qe-automation/package.helpers.git
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -26,15 +30,15 @@ Key Features
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
-- You have installed Python 3.7 or later.
-- You have a working internet connection.
+- Python 3.12 or later
+- pip
 
 ## Installation
 
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/msuliot/texten.git
+    git clone https://github.com/open-qe-automation/texten.git
     cd texten
     ```
 
@@ -51,6 +55,11 @@ Before you begin, ensure you have met the following requirements:
     pip install -r requirements.txt
     ```
 
+    For local development, use dev-requirements.txt:
+    ```bash
+    pip install -r dev-requirements.txt
+    ```
+
 ## Usage
 
 To run the TEXTEN application, use the following command:
@@ -61,19 +70,23 @@ python app.py
 
 ### Configuration
 
-The configuration is managed through a `config.json` file. Create a configuration file with the following structure:
+The configuration is managed through a `config.json` file:
 
 ```json
 {
-  "input_directories": ["path/to/input/directory"],
-  "text_output_directory": "path/to/text/output/directory",
-  "pii_output_directory": "path/to/pii/output/directory",
+  "input_directories": ["../share/input"],
+  "text_output_directory": "../share/text_output",
+  "pii_output_directory": "../share/pii_output",
   "hash_file_path": "file_hashes.json",
   "patterns": {
-    "SSN": "\\b\\d{3}-\\d{2}-\\d{4}\\b",
-    "CreditCard": "\\b\\d{4}-\\d{4}-\\d{4}-\\d{4}\\b"
+    "credit_card_numbers": "\\b(?:\\d{4}[ -]?){3}\\d{4}\\b",
+    "social_security_numbers": "\\b\\d{3}-\\d{2}-\\d{4}\\b"
   },
-  "pii_ok": ["path/to/pii_ok_file.json"],
-  "exclusions": ["*.tmp", "*.log"]
+  "exclusions": ["*.tmp", "*.log"],
+  "scheduler_interval": 60
 }
 ```
+
+## Output
+
+TEXTEN extracts text from input files and saves them to the text output directory. Files are processed only if they have changed (based on hash).
