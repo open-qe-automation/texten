@@ -26,6 +26,7 @@ Key Features
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
+- [Testing](#testing)
 
 ## Prerequisites
 
@@ -90,3 +91,14 @@ The configuration is managed through a `config.json` file:
 ## Output
 
 TEXTEN extracts text from input files and saves them to the text output directory. Files are processed only if they have changed (based on hash).
+
+## Testing
+
+Run tests with pytest:
+
+```bash
+pip install -r dev-requirements.txt
+pytest
+```
+
+Tests are located in the `tests/` directory.
